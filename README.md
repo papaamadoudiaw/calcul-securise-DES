@@ -1,54 +1,55 @@
 # 🔐 Attaque par fautes sur le DES
 
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![DES](https://img.shields.io/badge/Cryptographie-DES-red)
-![Status](https://img.shields.io/badge/Status-Terminé-green)
+Implémentation complète d'une **attaque par fautes** sur l'algorithme DES dans le cadre du cours de Calcul Sécurisé — M2 Cryptographie et Algèbre Appliquée.
 
-## Description
-
-Implémentation complète d'une **attaque par fautes** sur le **DES**
-dans le cadre du cours de Calcul Sécurisé — M2 Cryptographie.
-
-## Résultat
+## 🎯 Résultat obtenu
 
 | Donnée | Valeur |
 |--------|--------|
-| Message clair | 86 67 A7 0B 08 E6 5B 61 |
-| Chiffré juste | 61 D5 83 36 BF D4 83 B0 |
-| **Clé trouvée** | **FE 76 5D 01 D0 54 9E 20** |
+| Message clair | `86 67 A7 0B 08 E6 5B 61` |
+| Chiffré juste | `61 D5 83 36 BF D4 83 B0` |
+| **Clé trouvée** | **`FE 76 5D 01 D0 54 9E 20`** |
 
-## Structure du projet
+## 📁 Structure du projet
 
-    calcul-securise-DES/
-    ├── data/
-    │   └── donnees.txt
-    ├── notebooks/
-    │   └── analyse_DES.ipynb
-    ├── src/
-    │   ├── des.py
-    │   ├── attaque.py
-    │   └── retrouver_cle.py
-    └── README.md
+| Fichier | Description |
+|---------|-------------|
+| `src/des.py` | Implémentation complète du DES |
+| `src/attaque.py` | Attaque par fautes sur les boîtes S |
+| `src/retrouver_cle.py` | Retrouver la clé complète |
+| `notebooks/analyse_DES.ipynb` | Notebook principal |
+| `data/donnees.txt` | Message clair et chiffrés |
 
-## Utilisation
+## 🚀 Utilisation
 
-    python src/retrouver_cle.py
+### Lancer l'attaque complète
 
-## Principe de l'attaque
+```bash
+python src/retrouver_cle.py
+```
 
-    32 chiffrés faux (fautes sur R15)
-             ↓
-    Extraction R15 et R16
-             ↓
-    Attaque sur 8 boîtes S → K16 (48 bits)
-             ↓
-    Inversion PC-2 → 56 bits partiels
-             ↓
-    Force brute 256 essais
-             ↓
-    Clé : FE 76 5D 01 D0 54 9E 20 ✅
+### Lancer le notebook
 
-## Auteur
+```bash
+jupyter lab
+```
+
+## 📊 Principe de l'attaque
+
+| Étape | Description |
+|-------|-------------|
+| 1 | Extraction de R15 et R16 depuis les chiffrés |
+| 2 | Attaque sur les 8 boîtes S → K16 (48 bits) |
+| 3 | Inversion PC-2 → 56 bits partiels |
+| 4 | Force brute 2^8 = 256 essais |
+| 5 | Clé complète : `FE 76 5D 01 D0 54 9E 20` ✅ |
+
+## 🛠️ Prérequis
+
+- Python 3.x
+- Jupyter Lab
+
+## 👨‍💻 Auteur
 
 **Diaw Papa Amadou** — M2 Cryptographie et Algèbre Appliquée
 
