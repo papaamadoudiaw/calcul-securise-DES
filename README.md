@@ -1,45 +1,54 @@
-# calcul-securise-DES
-Attaque par fautes sur le DES - M1Algébre Appliquée et Cryptographie - Calcul Sécurisé
 # 🔐 Attaque par fautes sur le DES
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Cryptographie](https://img.shields.io/badge/Cryptographie-DES-red)
-![Status](https://img.shields.io/badge/Status-En%20cours-orange)
+![Status](https://img.shields.io/badge/Status-Terminé-green)
 
 ## 📋 Description
 
-Implémentation complète d'une **attaque par fautes** sur l'algorithme 
-**DES (Data Encryption Standard)** dans le cadre du cours de 
+Implémentation complète d'une **attaque par fautes** sur l'algorithme
+**DES (Data Encryption Standard)** dans le cadre du cours de
 Calcul Sécurisé — M2 Cryptographie et Algèbre Appliquée.
 
-## 🎯 Objectif
+## 🎯 Résultat
+Clé trouvée : FE 76 5D 01 D0 54 9E 20
 
-Retrouver la clé secrète DES à partir de :
-- 1 chiffré correct
-- 32 chiffrés faux obtenus par injection de fautes sur R15
-
-## 📁 Structure du projet
-
-## ✅ Progression
-
-- [x] Implémentation des tables DES
-- [x] Fonctions de conversion bits ↔ entiers
-- [x] Génération des 16 sous-clés
-- [x] Fonction F (Expansion, Boîtes S, Permutation)
-- [x] Chiffrement DES complet
-- [x] Attaque par fautes → K16 (48 bits)
-- [x] Retrouver la clé complète (56 bits)
-- [ ] Rapport final
+## 📁 Structure
+calcul-securise-DES/
+├── data/
+│ └── donnees.txt # Message clair + chiffrés
+├── notebooks/
+│ └── analyse_DES.ipynb # Notebook principal
+├── src/
+│ ├── des.py # Implémentation DES
+│ ├── attaque.py # Attaque par fautes
+│ └── retrouver_cle.py # Retrouver la clé complète
+└── README.md
 
 ## 🚀 Utilisation
 
 ```bash
+# Lancer l'attaque complète
+python src/retrouver_cle.py
+
 # Lancer le notebook
-cd calcul-securise-DES
 jupyter lab
 ```
 
+## 📊 Principe de l'attaque
+32 chiffrés faux (fautes sur R15)
+↓
+Extraction R15* et R16*
+↓
+Attaque sur 8 boîtes S → K16 (48 bits)
+↓
+Inversion PC-2 → 56 bits partiels
+↓
+Force brute 2^8 = 256 essais
+↓
+Clé complète : FE 76 5D 01 D0 54 9E 20 ✅
+
 ## 👨‍💻 Auteur
 
-**Diaw Papa Amadou** — M2 Cryptographie et Algèbre Appliquée  
+**Diaw Papa Amadou** — M2 Cryptographie et Algèbre Appliquée
 Université de Versailles Saint-Quentin-en-Yvelines
