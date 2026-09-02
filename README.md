@@ -27,8 +27,8 @@ Retrouver la clé secrète DES à partir de :
 - [x] Génération des 16 sous-clés
 - [x] Fonction F (Expansion, Boîtes S, Permutation)
 - [x] Chiffrement DES complet
-- [ ] Attaque par fautes → K16 (48 bits)
-- [ ] Retrouver la clé complète (56 bits)
+- [x] Attaque par fautes → K16 (48 bits)
+- [x] Retrouver la clé complète (56 bits)
 - [ ] Rapport final
 
 ## 🚀 Utilisation
